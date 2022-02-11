@@ -4,7 +4,12 @@
     {
         public string Execute(string command)
         {
-            return "0:0:W";
+            if (command == "L")
+            {
+                return "0:0:W";
+            }
+            
+            return "0:0:E";        
         }
     }
 }
