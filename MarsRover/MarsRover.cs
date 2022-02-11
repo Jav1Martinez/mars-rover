@@ -4,7 +4,7 @@
     {
         public string Execute(string command)
         {
-            return "";
+            return "0:0:W";
         }
     }
 }
