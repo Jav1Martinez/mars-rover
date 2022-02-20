@@ -4,12 +4,26 @@
     {
         public string Execute(string command)
         {
-            if (command == "L")
+            var direction = "NORTH";
+            var position = "0:0:E";
+
+            foreach (char c in command)
             {
-                return "0:0:W";
+                if (c == 'L')
+                {
+                    if (direction == "NORTH")
+                    {
+                        direction = "WEST";
+                        position = "0:0:W";
+                    }
+                    else if (direction == "WEST")
+                    {
+                        position = "0:0:S";
+                    }
+                }
             }
-            
-            return "0:0:E";        
+
+            return position;
         }
     }
 }
