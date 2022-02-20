@@ -18,7 +18,12 @@
                     }
                     else if (direction == "WEST")
                     {
+                        direction = "SOUTH";
                         position = "0:0:S";
+                    }
+                    else if (direction == "SOUTH")
+                    {
+                        position = "0:0:E";
                     }
                 }
             }
