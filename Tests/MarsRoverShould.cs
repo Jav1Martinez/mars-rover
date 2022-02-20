@@ -30,5 +30,18 @@ namespace Tests
             // Assert
             Assert.Equal("0:0:E", result);
         }
+        
+        [Fact]
+        public void RotateRightFromEast_ThenSouthIsFacing()
+        {
+            // Arrange
+            var command = "RR";
+            
+            // Act
+            var result = new MarsRover.MarsRover().Execute(command);
+            
+            // Assert
+            Assert.Equal("0:0:S", result);
+        }
     }
 }

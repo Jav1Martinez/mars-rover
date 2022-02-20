@@ -24,7 +24,7 @@ namespace MarsRover
                 }
                 else
                 {
-                    direction = "E";
+                    direction = RotationToRight(direction);
                 }
             }
 
@@ -34,6 +34,11 @@ namespace MarsRover
         private string RotateToLeft(string direction)
         {
             return positionMapping[direction].left;
+        }
+        
+        private string RotationToRight(string direction)
+        {
+            return positionMapping[direction].right;
         }
     }
 }
