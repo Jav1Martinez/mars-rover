@@ -23,7 +23,12 @@
                     }
                     else if (direction == "SOUTH")
                     {
+                        direction = "EAST";
                         position = "0:0:E";
+                    }
+                    else
+                    {
+                        position = "0:0:N";
                     }
                 }
             }

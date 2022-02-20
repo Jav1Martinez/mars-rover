@@ -4,43 +4,18 @@ namespace Tests
 {
     public class MarsRoverShould
     {
-        [Fact]
-        public void RotateLeftFromNorth_ThenWestIsFacing()
+        [Theory]
+        [InlineData("L", "0:0:W")] // North to West
+        [InlineData("LL", "0:0:S")] // West to South
+        [InlineData("LLL", "0:0:E")] // South to East
+        [InlineData("LLLL", "0:0:N")] // East to North
+        public void RotateLeft(string move, string expectedPosition)
         {
-            // Arrange
-            var command = "L";
-
             // Act
-            var result = new MarsRover.MarsRover().Execute(command);
+            var result = new MarsRover.MarsRover().Execute(move);
 
             // Assert
-            Assert.Equal("0:0:W", result);
-        }
-
-        [Fact]
-        public void RotateLeftFromWest_ThenSouthIsFacing()
-        {
-            // Arrange
-            var command = "LL";
-            
-            // Act
-            var result = new MarsRover.MarsRover().Execute(command);
-            
-            // Assert
-            Assert.Equal("0:0:S", result);
-        }
-
-        [Fact]
-        public void RotateLeftFromSouth_ThenEastIsFacing()
-        {
-            // Arrange
-            var command = "LLL";
-            
-            // Act
-            var result = new MarsRover.MarsRover().Execute(command);
-            
-            // Assert
-            Assert.Equal("0:0:E", result);
+            Assert.Equal(expectedPosition, result);
         }
         
         [Fact]
