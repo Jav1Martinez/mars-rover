@@ -1,16 +1,26 @@
-﻿namespace MarsRover
+﻿using System.Collections.Generic;
+
+namespace MarsRover
 {
     public class MarsRover
     {
+        Dictionary<string, dynamic> positionMapping = new Dictionary<string, dynamic>()
+        {
+            {"NORTH", new {left = "WEST", right = "EAST"}},
+            {"WEST", new {left = "SOUTH", right = "NORTH"}},
+            {"SOUTH", new {left = "EAST", right = "WEST"}},
+            {"EAST", new {left = "NORTH", right = "SOUTH"}},
+        };
+
         public string Execute(string commands)
         {
-            var direction = "N";
+            var direction = "NORTH";
 
             foreach (char command in commands)
             {
                 if (command == 'L')
                 {
-                    direction = rotateToLeft(direction);
+                    direction = RotateToLeft(direction);
                 }
                 else
                 {
@@ -18,27 +28,12 @@
                 }
             }
 
-            return "0:0:"+direction;
+            return "0:0:" + direction[0];
         }
 
-        private string rotateToLeft(string direction)
+        private string RotateToLeft(string direction)
         {
-            if (direction == "N")
-            {
-                return "W";
-            }
-            else if (direction == "W")
-            {
-                return "S";
-            }
-            else if (direction == "S")
-            {
-                return "E";
-            }
-            else
-            {
-                return "N";
-            }
+            return positionMapping[direction].left;
         }
     }
 }
