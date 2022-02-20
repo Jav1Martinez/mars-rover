@@ -2,38 +2,43 @@
 {
     public class MarsRover
     {
-        public string Execute(string command)
+        public string Execute(string commands)
         {
-            var direction = "NORTH";
-            var position = "0:0:E";
+            var direction = "N";
 
-            foreach (char c in command)
+            foreach (char command in commands)
             {
-                if (c == 'L')
+                if (command == 'L')
                 {
-                    if (direction == "NORTH")
-                    {
-                        direction = "WEST";
-                        position = "0:0:W";
-                    }
-                    else if (direction == "WEST")
-                    {
-                        direction = "SOUTH";
-                        position = "0:0:S";
-                    }
-                    else if (direction == "SOUTH")
-                    {
-                        direction = "EAST";
-                        position = "0:0:E";
-                    }
-                    else
-                    {
-                        position = "0:0:N";
-                    }
+                    direction = rotateToLeft(direction);
+                }
+                else
+                {
+                    direction = "E";
                 }
             }
 
-            return position;
+            return "0:0:"+direction;
+        }
+
+        private string rotateToLeft(string direction)
+        {
+            if (direction == "N")
+            {
+                return "W";
+            }
+            else if (direction == "W")
+            {
+                return "S";
+            }
+            else if (direction == "S")
+            {
+                return "E";
+            }
+            else
+            {
+                return "N";
+            }
         }
     }
 }
