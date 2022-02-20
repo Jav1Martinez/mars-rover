@@ -18,43 +18,18 @@ namespace Tests
             Assert.Equal(expectedPosition, result);
         }
         
-        [Fact]
-        public void RotateRightFromNorth_ThenEastIsFacing()
+        [Theory]
+        [InlineData("R", "0:0:E")] // North to East
+        [InlineData("RR", "0:0:S")] // East to South
+        [InlineData("RRR", "0:0:W")] // South to West
+        [InlineData("RRRR", "0:0:N")] // West to North
+        public void RotateRight(string move, string expectedPosition)
         {
-            // Arrange
-            var command = "R";
-            
             // Act
-            var result = new MarsRover.MarsRover().Execute(command);
+            var result = new MarsRover.MarsRover().Execute(move);
             
             // Assert
-            Assert.Equal("0:0:E", result);
-        }
-        
-        [Fact]
-        public void RotateRightFromEast_ThenSouthIsFacing()
-        {
-            // Arrange
-            var command = "RR";
-            
-            // Act
-            var result = new MarsRover.MarsRover().Execute(command);
-            
-            // Assert
-            Assert.Equal("0:0:S", result);
-        }
-        
-        [Fact]
-        public void RotateRightFromSouth_ThenWestIsFacing()
-        {
-            // Arrange
-            var command = "RRR";
-            
-            // Act
-            var result = new MarsRover.MarsRover().Execute(command);
-            
-            // Assert
-            Assert.Equal("0:0:W", result);
+            Assert.Equal(expectedPosition, result);
         }
     }
 }
