@@ -31,6 +31,11 @@ namespace MarsRover
                 else
                 {
                     coordinateY += 1;
+
+                    if (coordinateY > 9)
+                    {
+                        coordinateY = 0;
+                    }
                 }
             }
 

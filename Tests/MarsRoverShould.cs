@@ -44,5 +44,18 @@ namespace Tests
             // Assert
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact] 
+        public void WrapAroundWhenCoordinateYisOverflowed()
+        {
+            // Arrange
+            var command = "MMMMMMMMMM";
+            
+            //Act
+            var result = new MarsRover.MarsRover().Execute(command);
+            
+            // Assert
+            Assert.Equal("0:0:N", result);
+        }
     }
 }
