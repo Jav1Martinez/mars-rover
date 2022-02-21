@@ -31,5 +31,18 @@ namespace Tests
             // Assert
             Assert.Equal(expectedPosition, result);
         }
+
+        [Fact]
+        public void MoveOneStepAheadInCoordinateYDirection()
+        {
+            // Assert
+            var command = "M";
+            
+            // Act
+            var result = new MarsRover.MarsRover().Execute(command);
+            
+            // Assert
+            Assert.Equal("0:1:N", result);
+        }
     }
 }

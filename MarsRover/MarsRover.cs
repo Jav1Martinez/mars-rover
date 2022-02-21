@@ -15,6 +15,8 @@ namespace MarsRover
         public string Execute(string commands)
         {
             var direction = "NORTH";
+            var coordinateX = 0;
+            var coordinateY = 0;
 
             foreach (char command in commands)
             {
@@ -22,13 +24,17 @@ namespace MarsRover
                 {
                     direction = RotateToLeft(direction);
                 }
-                else
+                else if (command == 'R')
                 {
                     direction = RotationToRight(direction);
                 }
+                else
+                {
+                    coordinateY += 1;
+                }
             }
 
-            return "0:0:" + direction[0];
+            return coordinateX + ":" + coordinateY + ":" + direction[0];
         }
 
         private string RotateToLeft(string direction)
