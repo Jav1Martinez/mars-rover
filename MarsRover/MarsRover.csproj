@@ -39,6 +39,12 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Coordinate.cs" />
+        <Compile Include="Direction.cs" />
+        <Compile Include="Grid.cs" />
+        <Compile Include="ICoordinate.cs" />
+        <Compile Include="IDirection.cs" />
+        <Compile Include="IGrid.cs" />
         <Compile Include="MarsRover.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
