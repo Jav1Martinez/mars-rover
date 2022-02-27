@@ -25,11 +25,23 @@ namespace MarsRover
 
         public void Move(string direction)
         {
-            _coordenateY += 1;
+            if (direction == "NORTH")
+            {
+                _coordenateY += 1;
+            }
+
+            if (direction == "SOUTH")
+            {
+                _coordenateY -= 1;
+            }
             
             if (_coordenateY >= _grid.getHeight())
             {
                 _coordenateY = 0;
+            }
+            else if (_coordenateY <= 0)
+            {
+                _coordenateY = _grid.getHeight()-1;
             }
         }
     }
