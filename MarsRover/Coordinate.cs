@@ -30,6 +30,11 @@ namespace MarsRover
                 _coordenateX += 1;
             }
             
+            if (direction == "WEST")
+            {
+                _coordenateX -= 1;
+            }
+            
             if (direction == "NORTH")
             {
                 _coordenateY += 1;
@@ -43,6 +48,11 @@ namespace MarsRover
             if (_coordenateX >= _grid.getWidth())
             {
                 _coordenateX = 0;
+            }
+            
+            if (_coordenateX < 0)
+            {
+                _coordenateX = _grid.getWidth()-1;
             }
             
             if (_coordenateY >= _grid.getHeight())

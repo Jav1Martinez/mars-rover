@@ -96,5 +96,18 @@ namespace Tests
             // Assert
             Assert.Equal("0:0:E", result);
         }
+        
+        [Fact] 
+        public void WrapAroundWhenCoordinateXisUnderflowed()
+        {
+            // Arrange
+            var command = "LM";
+            
+            //Act
+            var result = new MarsRover.MarsRover().Execute(command);
+            
+            // Assert
+            Assert.Equal("9:0:W", result);
+        }
     }
 }
