@@ -70,5 +70,18 @@ namespace Tests
             // Assert
             Assert.Equal("0:9:S", result);
         }
+
+        [Fact]
+        public void MoveOneStepAheadInCoordinateXDirection()
+        {
+            // Arrange
+            var command = "RM";
+            
+            // Act
+            var result = new MarsRover.MarsRover().Execute(command);
+            
+            // Assert
+            Assert.Equal("1:0:E", result);
+        }
     }
 }
