@@ -40,11 +40,17 @@ namespace MarsRover
                 _coordenateY -= 1;
             }
 
+            if (_coordenateX >= _grid.getWidth())
+            {
+                _coordenateX = 0;
+            }
+            
             if (_coordenateY >= _grid.getHeight())
             {
                 _coordenateY = 0;
             }
-            else if (_coordenateY < 0)
+            
+            if (_coordenateY < 0)
             {
                 _coordenateY = _grid.getHeight()-1;
             }
