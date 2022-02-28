@@ -26,6 +26,11 @@
                 }
             }
 
+            return Position(coordinate, currentDirection);
+        }
+        
+        private string Position(ICoordinate coordinate, string currentDirection)
+        {
             return coordinate.GetX() + ":" + coordinate.GetY() + ":" + currentDirection[0];
         }
     }

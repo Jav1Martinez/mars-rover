@@ -4,17 +4,22 @@ namespace MarsRover
 {
     public class Direction : IDirection
     {
+        public const string North = "NORTH";
+        public const string West = "WEST";
+        public const string South = "SOUTH";
+        public const string East = "EAST";
+            
         private readonly string _direction;
 
         Dictionary<string, dynamic> directionMapping = new Dictionary<string, dynamic>()
         {
-            {"NORTH", new {left = "WEST", right = "EAST"}},
-            {"WEST", new {left = "SOUTH", right = "NORTH"}},
-            {"SOUTH", new {left = "EAST", right = "WEST"}},
-            {"EAST", new {left = "NORTH", right = "SOUTH"}},
+            {North, new {left = West, right = East}},
+            {West, new {left = South, right = North}},
+            {South, new {left = East, right = West}},
+            {East, new {left = North, right = South}},
         };
 
-        public Direction(string direction = "NORTH")
+        public Direction(string direction = North)
         {
             _direction = direction;
         }
